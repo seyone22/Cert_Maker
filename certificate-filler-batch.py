@@ -81,9 +81,10 @@ if __name__ == "__main__":
     # Load the config file
     config = load_config("config-batch.json")
 
-    parser = argparse.ArgumentParser(description="This application adds text on top of images")
-    parser.add_argument("-t", "--template", help="Filename of template to overlay", required=False)
-    parser.add_argument("-d", "--data", help="CSV file containing data", required=True)
+    parser = argparse.ArgumentParser(description="Batch overlay certificates with text from a CSV")
+    parser.add_argument("-t", "--template", help="Filename of template to overlay. If not provided, the default template 'cert_template.png' will be used.", required=False)
+    parser.add_argument("-d", "--data", help="CSV file containing data. This CSV file should contain a header row with the same header names as defined in the config-batch.json file.", required=True)
+
     args = parser.parse_args()
 
     # Get input file name from user
