@@ -46,6 +46,8 @@ def generate_certificate(cert_template_path, data, config, save):
         # Load defaults
         font = ImageFont.truetype(config["defaults"]["font_name"], config["defaults"]["font_size"])
         base_name, extension = os.path.splitext(cert_template_path)
+        cwd = os.getcwd();
+        basename = os.path.basename(cert_template_path)
 
         for row_data in data:
             # Opens the template
@@ -55,7 +57,7 @@ def generate_certificate(cert_template_path, data, config, save):
             draw = ImageDraw.Draw(template_img)
             # Defines the filename of the output file
             save_iterator = row_data[save]
-            output_path = f"{base_name}_{save_iterator}{extension}"
+            output_path = f"{cwd}/output/{basename}_{save_iterator}{extension}"
             # Defines text positions on the certificate
             for text_entry in config["headers"]:
                 position = tuple(text_entry["position"])
@@ -80,7 +82,7 @@ def generate_certificate(cert_template_path, data, config, save):
 
 if __name__ == "__main__":
     # Load the config file
-    config = load_config("config-batch.json")
+    config = load_config("./config/config-batch.json")
 
     parser = argparse.ArgumentParser(description="Batch overlay certificates with text from a CSV")
     parser.add_argument("-t", "--template", help="Filename of template to overlay. If not provided, the default template 'cert_template.png' will be used.", required=False)
