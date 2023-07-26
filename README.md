@@ -1,5 +1,7 @@
 # Batch Certificate Detail Filler
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/seyone22/Cert_Maker/python-app.yml)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
