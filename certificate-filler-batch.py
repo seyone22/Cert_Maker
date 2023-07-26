@@ -37,8 +37,10 @@ def fetch_records(csvFilename):
         return None
 
 
-def generate_certificate(cert_template_path, data, config):
+def generate_certificate(cert_template_path, data, config, save):
     try:
+        # counter for number of times the loop runs
+        counter = 1
         # Load the certificate template image
         if(cert_template_path == None):
             cert_template_path = "cert_template.png"
@@ -54,7 +56,8 @@ def generate_certificate(cert_template_path, data, config):
             # Creates a drawing context
             draw = ImageDraw.Draw(template_img)
             # Defines the filename of the output file
-            output_path = f"{base_name}_{row_data['name']}{extension}"
+            save_iterator = row_data[save]
+            output_path = f"{base_name}_{save_iterator}{extension}"
             # Defines text positions on the certificate
             for text_entry in config["headers"]:
                 position = tuple(text_entry["position"])
@@ -84,6 +87,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Batch overlay certificates with text from a CSV")
     parser.add_argument("-t", "--template", help="Filename of template to overlay. If not provided, the default template 'cert_template.png' will be used.", required=False)
     parser.add_argument("-d", "--data", help="CSV file containing data. This CSV file should contain a header row with the same header names as defined in the config-batch.json file.", required=True)
+    parser.add_argument("--save", help="Value to name the output files with. Ensure that this field is unique, and the same as in the config and csv!", required=True)
 
     args = parser.parse_args()
 
@@ -97,4 +101,4 @@ if __name__ == "__main__":
 
 
     # Generate the certificate, with the config file
-    generate_certificate(args.template, data, config)
+    generate_certificate(args.template, data, config, args.save)
