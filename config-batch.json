@@ -1,0 +1,33 @@
+{
+    "headers": [
+        {
+            "name": "name",
+            "position": [450, 300],
+            "font-size": 40,
+            "color": "green"
+        },
+        {
+            "name": "cert_id",
+            "position": [160, 120],
+            "font-size": 20,
+            "color": "black"
+        },
+        {
+            "name": "desc",
+            "position": [400, 390],
+            "font-size": 20,
+            "color": "black"
+        },
+        {
+            "name": "age",
+            "position": [400, 500],
+            "font-size": 20,
+            "color": "black"
+        }
+    ],
+    "defaults": {
+        "font_name": "arial.ttf",
+        "font_size": 20,
+        "color": "black"
+        }
+}

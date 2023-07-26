@@ -45,7 +45,9 @@ def generate_certificate(cert_template_path, output_path, config):
 
         # Save the final certificate image
         template_img.save(output_path)
+        template_img.close()
         print(f"Certificate generated successfully! Saved at {output_path}")
+        
 
     except FileNotFoundError:
         print("Error: Certificate template file not found.")
