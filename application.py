@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 import json
+import argparse
 
 def load_config(config_path):
     try:
@@ -17,7 +18,7 @@ def load_config(config_path):
 def generate_certificate(cert_template_path, output_path, config):
     try:
         # Load the certificate template image
-        if(cert_template_path == ""):
+        if(cert_template_path == None):
             cert_template_path = "cert_template.png"
         template_img = Image.open(cert_template_path)
 
@@ -27,7 +28,7 @@ def generate_certificate(cert_template_path, output_path, config):
         # Load defaults
         font = ImageFont.truetype(config["defaults"]["font_name"], config["defaults"]["font_size"])
         base_name, extension = os.path.splitext(cert_template_path)
-        if(output_path == ""):
+        if(output_path == None):
             output_path = f"{base_name}_modified{extension}"
 
         # Defines text positions on the certificate
@@ -55,10 +56,15 @@ if __name__ == "__main__":
     # Load the config file
     config = load_config("config.json")
 
+    parser = argparse.ArgumentParser(description="This application adds text on top of images")
+    parser.add_argument("-o", "--output", help="Output filename (with extension)", required=False)
+    parser.add_argument("-t", "--template", help="Filename of template to overlay", required=False)
+    args = parser.parse_args()
+
     # Get input file name from user
-    certificate_template_path = input("Enter the name of the file: ")
+    # certificate_template_path = input("Enter the name of the file: ")
     # Get output file name from user (default is 'inputFileName_modified')
-    output_path = input("Enter the name of the output file (with extension): ")
+    # output_path = input("Enter the name of the output file (with extension): ")
     
     # Generate the certificate, with the config file
-    generate_certificate(certificate_template_path, output_path, config)
+    generate_certificate(args.template, args.output, config)
