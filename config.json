@@ -1,0 +1,19 @@
+{
+    "text_positions": [
+        {
+            "position": [1000, 1000],
+            "text": "TEXT 1",
+            "font-size": 20
+        },
+        {
+            "position": [1000, 2000],
+            "text": "TEXT 2",
+            "font-size": 20
+        }
+    ],
+    "defaults": {
+        "font_name": "arial.ttf",
+        "font_size": 20,
+        "color": "black"
+        }
+}
