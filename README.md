@@ -1,9 +1,5 @@
 # Batch Certificate Detail Filler
 
-This application was created with the aim of assisting the University of Vavuniya in mass-creating certificates for various events. There are two scripts:
-- certificate-filler-batch.py
-- certificate-filler.py
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -14,13 +10,13 @@ This application was created with the aim of assisting the University of Vavuniy
 
 ## Introduction
 
-A brief introduction to your project. Explain what it does, its purpose, and any relevant background information. Mention the technologies or libraries used (e.g., Python, CSV, etc.).
+This application was created with the aim of assisting the University of Vavuniya in mass-creating certificates for various events. There are two scripts:
+- certificate-filler-batch.py
+- certificate-filler.py
 
 ## Features
 
-List the key features of your project. Provide a clear and concise description of what users can achieve with your application.
-
-- Supports processing .png, .jpg, and .jpeg files. Should work on other image formats as well, butu I haven't tested it.
+- Supports processing .png, .jpg, and .jpeg files. Should work on other image formats as well, but I haven't tested it.
 
 ## Installation
 
