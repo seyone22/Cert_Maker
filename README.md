@@ -1,4 +1,4 @@
-# Project Name
+# Batch Certificate Detail Filler
 
 This application was created with the aim of assisting the University of Vavuniya in mass-creating certificates for various events. There are two scripts:
 - certificate-filler-batch.py
