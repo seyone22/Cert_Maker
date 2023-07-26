@@ -30,7 +30,7 @@ def fetch_records(csvFilename):
 
         return data
     except FileNotFoundError:
-        print(f"Data Error: '{csvFilename}' not found.")
+        print(f"Data Error: '{csvFilename}' not found. Please check the filename.")
         return None
     except Exception as e:
         print(f"Data Error: {e}")
