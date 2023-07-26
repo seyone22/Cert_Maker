@@ -39,8 +39,6 @@ def fetch_records(csvFilename):
 
 def generate_certificate(cert_template_path, data, config, save):
     try:
-        # counter for number of times the loop runs
-        counter = 1
         # Load the certificate template image
         if(cert_template_path == None):
             cert_template_path = "cert_template.png"
